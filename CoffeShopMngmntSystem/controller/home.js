@@ -10,7 +10,7 @@ router.get('*', function(req, res, next){
 		next();
 	}
 });
-
+//home
 router.get('/', function(req, res){
   var sql = "select * from users where username='"+req.session.username+"'";
   db.getResults(sql,function(results){
