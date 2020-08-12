@@ -59,6 +59,17 @@ module.exports ={
     });
   },
 
+  getAllDeliveryMan:function(userType,callback){
+		var sql = "select * from users where userType='"+userType+"'";
+		db.getResults(sql, function(results){
+			if(results.length > 0){
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
   //food model
   getByIdFood: function(id, callback){
 		var sql = "select * from food where id="+id;
@@ -130,6 +141,17 @@ module.exports ={
 			}
 		});
 	},
+
+  updateIngredients: function(user, callback){
+    var sql = "update food set ingredients='"+user.ingredients+"' where id='"+user.id+"'";
+    db.execute(sql, function(status){
+      if(status){
+        callback(true);
+      }else{
+        callback(false);
+      }
+    });
+  },
 
   delete: function(id, callback){
 		var sql = "delete from food where id="+id;

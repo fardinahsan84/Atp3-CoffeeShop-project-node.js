@@ -9,24 +9,25 @@
         }
         h4 {text-align: center;}
     </style>
+
     <script>
       function validateForm() {
-      var x = document.forms["suggestForm"]["suggested"].value;
-      if (x == "no") {
-      alert("Suggestion removed for the customer!!");
+      var x = document.forms["ingredForm"]["ingredients"].value;
+      if (x != "<%= user.ingredients %>") {
+      alert("Updated INGREDIENTS successfully....");
       return true;
       }
       else{
-        alert("Suggested successfuly for the customer!!");
+        alert("Nothing changed!!!! ");
         return true;
       }
     }
     </script>
 </head>
 <body>
-    <form name="suggestForm" onsubmit="return validateForm()" method="post" required>
+    <form name="ingredForm" onsubmit="return validateForm()" method="post">
         <fieldset>
-            <legend>Suggest Food Item</legend>
+            <legend>Change the Ingredients of a food item</legend>
             <table class="center">
               <tr>
                 <td>Item name: </td>
@@ -46,19 +47,7 @@
               </tr>
               <tr>
                 <td>Ingredients</td>
-                <td><%= user.ingredients %></td>
-              </tr>
-              <tr>
-                <td>Suggested</td>
-                <td><%= user.suggested %></td>
-              </tr>
-              <tr>
-                <td><h3>Do you want to suggest this item?</h3></td>
-                <td>  <input type="radio" id="yes" name="suggested" value="yes" checked="checked">
-                      <label for="yes">Yes</label><br>
-                      <input type="radio" id="no" name="suggested" value="no" >
-                      <label for="no">No</label><br>
-                </td>
+                <td><input type="text" value="<%= user.ingredients %>" required="required" name="ingredients"  id="ingredients"></td>
               </tr>
               <tr>
                 <td></td>

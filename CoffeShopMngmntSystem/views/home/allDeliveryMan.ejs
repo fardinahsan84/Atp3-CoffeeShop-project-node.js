@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Food Item List page</title>
+  <style>
+    table.center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+  			h3 {text-align: right;}
+  </style>
+
+</head>
+<body>
+	    <center>
+				<h1>Delivery man list</h1>
+			  <h2>Manager: <%= username %></h2>
+			</center>
+
+						<h3><a href="/home">Back</a>|<a href="/logout">Logout</a></h3>
+
+
+    		<% for(var i=0; i < userList.length; i++){ %>
+				 <fieldset>
+					<table class="center">
+					<legend><%= userList[i].name %></legend>
+    		<tr>
+    			<th>ID</th><td>:<%= userList[i].id %></td><td></td><td></td>
+				</tr>
+				<tr>
+    			<th>NAME</th><td>:<%= userList[i].name %></td><td></td>
+				</tr>
+				<tr>
+          <th>Gender</th><td>:<%= userList[i].gender %></td><td></td>
+				</tr
+				<tr>
+          <th>Phone no</th><td>:<%= userList[i].phone %></td><td></td>
+        </tr>
+				<tr>
+    			<th>Address</th><td>:<%= userList[i].address %></td><td><a href="/manager/editDelivery/<%= userList[i].id %>"> Edit </a></td>
+				</tr>
+        <tr>
+    			<th>Email</th><td>:<%= userList[i].email %></td><td><a href="/manager/deleteDelivery/<%= userList[i].id %>">Delete</a></td>
+    		</tr>
+				</table>
+				</fieldset>
+    		<% } %>
+
+</body>
+</html>

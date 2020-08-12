@@ -9,9 +9,23 @@
         }
         h4 {text-align: center;}
     </style>
+
+    <script>
+      function validateForm() {
+      var x = document.forms["statusForm"]["status"].value;
+      if (x == "available") {
+      alert("Status changed to AVAILABLE");
+      return true;
+      }
+      else{
+        alert("Status changed to NOT AVAILABLE!!!");
+        return true;
+      }
+    }
+    </script>
 </head>
 <body>
-    <form method="post">
+    <form name="statusForm" onsubmit="return validateForm()" method="post" required>
         <fieldset>
             <legend>Change the status of a food item</legend>
             <table class="center">

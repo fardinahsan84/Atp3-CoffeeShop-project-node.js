@@ -13,6 +13,14 @@ router.get('/AllFoodItem', function(req, res){
 	});
 });
 
+router.get('/allDeliveryMan', function(req, res){
+
+	userModel.getAllDeliveryMan("delivery",function(results){
+    console.log(results);
+		res.render('home/allDeliveryMan', { userList : results, username: req.session.username});
+	});
+});
+
 router.get('/create', function(req, res){
 	res.render('home/add');
 });
@@ -135,6 +143,28 @@ router.post('/status/:id', function(req, res){
 	});
 });
 
+
+router.get('/ingredients/:id', function(req, res){
+
+	userModel.getByIdFood(req.params.id, function(result){
+		res.render('home/ingredients', {user: result});
+	});
+
+});
+
+router.post('/ingredients/:id', function(req, res){
+	var user={
+		ingredients	:req.body.ingredients,
+		id :req.params.id
+	}
+	userModel.updateIngredients(user, function(status){
+		if(status){
+			res.redirect('/manager/AllFoodItem');
+		}else{
+			res.redirect('/home');
+		}
+	});
+});
 
 router.get('/delete/:id', function(req, res){
 
