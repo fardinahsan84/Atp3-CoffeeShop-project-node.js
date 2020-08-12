@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+    table.center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Delete Item</legend>
+            <table class="center">
+              <tr>
+                <td>Item name: </td>
+                <td><%= user.name %></td>
+              </tr>
+              <tr>
+                <td>Item id:</td>
+                <td><%= user.id %></td>
+              </tr>
+              <tr>
+                <td>Item price:</td>
+                <td><%= user.price %></td>
+              </tr>
+              <tr>
+                <td>Item status:</td>
+                <td><%= user.status %></td>
+              </tr>
+              <tr>
+                <td>Ingredients</td>
+                <td><%= user.ingredients %></td>
+              </tr>
+              <tr>
+                <td><h3>Are you sure to delete this item?</h3></td>
+              </tr>
+              <tr>
+                <td><input type="hidden" name="id" value="<%= user.id %>"></td>
+                <td><input type="submit" name="choice" value="Confirm"></td>
+              </tr>
+              </table>
+            </fieldset>
+              <table class="center">
+              <tr>
+                <td><a href="/manager/AllFoodItem">Back</a></td>
+                <td>|</td>
+              	<td><a href="/logout">Logout</a></td>
+              </tr>
+            </table>
+    </form>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Page</title>
+    <style>
+    table.center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Add Coffee Item</legend>
+            <table class="center">
+              <tr>
+                <td>Item name</td>
+                <td><input type="text" name="name" required></td>
+              </tr>
+              <tr>
+                <td>Item price</td>
+                <td><input type="text" name="price" required></td>
+              </tr>
+              <tr>
+                <td>Ingredients</td>
+                <td><input type="text" name="ingredients" required></td>
+              </tr>
+
+              <tr>
+                <td>Item status</td>
+                <td>  <input type="radio" id="available" name="status" value="available" checked="checked">
+                      <label for="available">Available</label><br>
+                      <input type="radio" id="notAvailable" name="status" value="not available" >
+                      <label for="notAvailable">Not Available</label><br>
+                </td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td><button type="submit" name"choice" value="Insert" class="btn btn-primary">Insert</button></td>
+              </tr>
+            </table>
+        </fieldset>
+      </form>
+      <table class="center">
+          <tr>
+            <td><a href="/home">Back</a>|
+          	<a href="/logout">Logout</a></td>
+          </tr>
+      </table>
+</body>

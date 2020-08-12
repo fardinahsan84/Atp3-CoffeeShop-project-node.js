@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Food Item List page</title>
+  <style>
+  table.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+			h3 {text-align: right;}
+  </style>
+
+</head>
+<body>
+	<center>
+				<h1>All Coffee items</h1>
+			  <h2>Manager: <%= username %></h2>
+			</center>
+
+						<h3><a href="/home">Back</a>|<a href="/logout">Logout</a></h3>
+
+
+    		<% for(var i=0; i < userList.length; i++){ %>
+				 <fieldset>
+					<table class="center">
+					<legend><%= userList[i].name %></legend>
+    		<tr>
+    			<th>ID</th><td><%= userList[i].id %></td><td><a href="/manager/edit/<%= userList[i].id %>"> Edit </a></td>
+				</tr>
+				<tr>
+    			<th>NAME</th><td><%= userList[i].name %></td><td><a href="/manager/suggest/<%= userList[i].id %>">Suggest</a></td>
+				</tr>
+				<tr>
+          <th>Price/item</th><td><%= userList[i].price %></td><td><a href="/manager/delete/<%= userList[i].id %>">Delete</a></td>
+				</tr>
+				<tr>
+    			<th>Status</th><td><%= userList[i].status %></td><td><a href="/manager/status/<%= userList[i].id %>">Change Status</a></td>
+				</tr>
+    			<th>Ingredients</th><td><%= userList[i].ingredients %></td><td><a href="/manager/ingredients/<%= userList[i].id %>">Edit Ingredients</a></td>
+    		</tr>
+				</table>
+				</fieldset>
+    		<% } %>
+
+</body>
+</html>

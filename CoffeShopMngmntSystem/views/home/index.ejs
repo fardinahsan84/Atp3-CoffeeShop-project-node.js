@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home page</title>
+	<style>
+	table.center {
+				margin-left: auto;
+				margin-right: auto;
+			}
+	</style>
+
+</head>
+<body>
+	<center>
+
+					<h1>Welcome Home! <%= userlist.name %></h1>
+					<h2>My Profile</h2>
+
+</center>
+	<fieldset>
+		<table class="center">
+			<tr>
+				<td>ID:</td><td><%= userlist.id %></td>
+			</tr>
+			<tr>
+				<td>Name:</td><td><%= userlist.name %></td>
+			</tr>
+			<tr>
+				<td>Gender:</td><td><%= userlist.gender %></td>
+			</tr>
+			<tr>
+				<td>Phone:</td><td><%= userlist.phone %><td>
+			</tr>
+			<tr>
+				<td>Address:</td><td><%= userlist.address %><td>
+			</tr>
+			<tr>
+				<td>Email:</td><td><%= userlist.email %></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="/manager/editProfile/<%= userlist.id %>">Edit Profile</a></td>
+			</tr>
+		</table>
+	</fieldset>
+	<table class="center">
+		<tr>
+		  <td><a href="/manager/AllFoodItem">View Food List</a>|</td>
+			<td><a href="/manager/create">Add item</a>|</td>
+			<td><a href="/logout">Logout</a></td>
+		</tr>
+	</table>
+
+</body>
+</html>

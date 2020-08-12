@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+    table.center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        h4 {text-align: center;}
+    </style>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Suggest Food Item</legend>
+            <table class="center">
+              <tr>
+                <td>Item name: </td>
+                <td><%= user.name %></td>
+              </tr>
+              <tr>
+                <td>Item id:</td>
+                <td><%= user.id %></td>
+              </tr>
+              <tr>
+                <td>Item price:</td>
+                <td><%= user.price %></td>
+              </tr>
+              <tr>
+                <td>Item status:</td>
+                <td><%= user.status %></td>
+              </tr>
+              <tr>
+                <td>Ingredients</td>
+                <td><%= user.ingredients %></td>
+              </tr>
+              <tr>
+                <td>Suggested</td>
+                <td><%= user.suggested %></td>
+              </tr>
+              <tr>
+                <td><h3>Do you want to suggest this item?</h3></td>
+                <td>  <input type="radio" id="yes" name="suggested" value="yes" checked="checked">
+                      <label for="yes">Yes</label><br>
+                      <input type="radio" id="no" name="suggested" value="no" >
+                      <label for="no">No</label><br>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button type="submit" name"choice" value="Save" class="btn btn-primary">Save</button></td>
+              </tr>
+              </table>
+            </fieldset>
+              <table class="center">
+              <tr>
+                <td><a href="/manager/AllFoodItem">Back</a></td>
+                <td>|</td>
+              	<td><a href="/logout">Logout</a></td>
+              </tr>
+            </table>
+    </form>
+</body>
