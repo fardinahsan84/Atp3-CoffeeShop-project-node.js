@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+    table.center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        h4 {text-align: center;}
+    </style>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Change the status of a food item</legend>
+            <table class="center">
+              <tr>
+                <td>Item name: </td>
+                <td><%= user.name %></td>
+              </tr>
+              <tr>
+                <td>Item id:</td>
+                <td><%= user.id %></td>
+              </tr>
+              <tr>
+                <td>Item price:</td>
+                <td><%= user.price %></td>
+              </tr>
+              <tr>
+                <td>Item status:</td>
+                <td><%= user.status %></td>
+              </tr>
+
+              <tr>
+                <td><h3>Is it available or not?</h3></td>
+                <td>  <input type="radio" id="available" name="status" value="available" checked="checked">
+                      <label for="available">Available</label><br>
+                      <input type="radio" id="notAvailable" name="status" value="not available" >
+                      <label for="notAvailable">Not Available</label><br>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button type="submit" name"choice" value="Save" class="btn btn-primary">Save</button></td>
+              </tr>
+              </table>
+            </fieldset>
+              <table class="center">
+              <tr>
+                <td><a href="/manager/AllFoodItem">Back</a></td>
+                <td>|</td>
+              	<td><a href="/logout">Logout</a></td>
+              </tr>
+            </table>
+    </form>
+</body>

@@ -120,6 +120,17 @@ module.exports ={
 		});
 	},
 
+  updateStatus: function(user, callback){
+		var sql = "update food set status='"+user.status+"' where id='"+user.id+"'";
+		db.execute(sql, function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
+
   delete: function(id, callback){
 		var sql = "delete from food where id="+id;
 		db.execute(sql, function(status){

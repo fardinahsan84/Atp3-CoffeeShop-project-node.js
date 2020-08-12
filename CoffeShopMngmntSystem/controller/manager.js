@@ -113,6 +113,29 @@ router.post('/suggest/:id', function(req, res){
 	});
 });
 
+router.get('/status/:id', function(req, res){
+
+	userModel.getByIdFood(req.params.id, function(result){
+		res.render('home/status', {user: result});
+	});
+
+});
+
+router.post('/status/:id', function(req, res){
+	var user={
+		status	:req.body.status,
+		id :req.params.id
+	}
+	userModel.updateStatus(user, function(status){
+		if(status){
+			res.redirect('/manager/AllFoodItem');
+		}else{
+			res.redirect('/home');
+		}
+	});
+});
+
+
 router.get('/delete/:id', function(req, res){
 
 	userModel.getByIdFood(req.params.id, function(result){
