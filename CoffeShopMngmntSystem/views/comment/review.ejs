@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Food Item List page</title>
+  <style>
+  table.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+			h3 {text-align: right;}
+  </style>
+
+</head>
+<body>
+	<center>
+				<h1>All comments of <%= food.name %></h1>
+
+			</center>
+
+						<h3><a href="/home">Back</a>|<a href="/logout">Logout</a></h3>
+
+          <table>
+            <tr><td>
+
+            <fieldset>
+             <table class="center">
+             <legend><h4><%= food.name %></h4></legend>
+            <tr>
+             <th>ID</th><td>:<%= food.id %></td><td></td>
+            </tr>
+            <tr>
+             <th>NAME</th><td>:<%= food.name %></td><td>
+            </tr>
+            <tr>
+             <th>Price/item</th><td>:<%= food.price %></td>
+            </tr
+            <tr>
+             <th>Suggested</th><td>:<%= food.suggested %></td>
+            <tr>
+             <th>Status</th><td>:<%= food.status %></td>
+            </tr>
+            <tr>
+             <th>Ingredients</th><td>:<%= food.ingredients %></td>
+            </tr>
+            </table>
+            </fieldset></td>
+
+            <td><h4>Comments:</h4>
+            <% for(var i=0; i < cmtList.length; i++){ %>
+            <table class="center">
+              <tr>
+                <th></th>
+                <td><input type="text" id="" name="cmt" value="<%= cmtList[i].comment %>" readonly><br></td>
+              </tr>
+            </table>
+            <% } %>
+            </td></tr>
+            </table>
+    </body>
+  </html>

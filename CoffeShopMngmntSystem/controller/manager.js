@@ -3,8 +3,6 @@ var userModel = require.main.require('./models/user-model');
 var router = express.Router();
 
 
-
-
 router.get('/AllFoodItem', function(req, res){
 
 	userModel.getAllFood(function(results){
@@ -12,6 +10,7 @@ router.get('/AllFoodItem', function(req, res){
 		res.render('home/allFood', { userList : results, username: req.session.username});
 	});
 });
+
 
 router.get('/allDeliveryMan', function(req, res){
 
@@ -21,10 +20,10 @@ router.get('/allDeliveryMan', function(req, res){
 	});
 });
 
+
 router.get('/create', function(req, res){
 	res.render('home/add');
 });
-
 
 router.post('/create', function(req, res){
 
@@ -79,7 +78,7 @@ router.post('/editProfile/:id', function(req, res){
 											id           :req.params.id
 											//image			   :req.img_name
 										}
-									
+
 
 										userModel.updateManager(user,img_name, function(status){
 				 						 		if(status){
@@ -96,6 +95,7 @@ router.post('/editProfile/:id', function(req, res){
 				 }
 		}
 });
+
 
 router.get('/edit/:id', function(req, res){
 
@@ -123,6 +123,7 @@ router.post('/edit/:id', function(req, res){
 	});
 });
 
+
 router.get('/suggest/:id', function(req, res){
 
 	userModel.getByIdFood(req.params.id, function(result){
@@ -144,6 +145,7 @@ router.post('/suggest/:id', function(req, res){
 		}
 	});
 });
+
 
 router.get('/status/:id', function(req, res){
 
@@ -189,6 +191,19 @@ router.post('/ingredients/:id', function(req, res){
 		}
 	});
 });
+
+
+router.get('/Reviews/:id', function(req, res){
+
+	userModel.getCmtByFoodId(req.params.id, function(result){
+		userModel.getByIdFood(req.params.id,function(foods){
+
+					res.render('comment/review', {cmtList: result, food: foods});
+			});
+	});
+
+});
+
 
 router.get('/delete/:id', function(req, res){
 

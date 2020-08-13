@@ -94,6 +94,17 @@ module.exports ={
 		});
 	},
 
+  getCmtByFoodId:function(id,callback){
+    var sql = "select * from comments where id='"+id+"'";
+    db.getResults(sql, function(results){
+      if(results.length > 0){
+        callback(results);
+      }else{
+        callback([]);
+      }
+    });
+  },
+
 
   insert: function(user, callback){
 		var sql = "insert into food values('', '"+user.name+"', '"+user.price+"','','"+user.status+"', '"+user.ingredients+"','','')";
