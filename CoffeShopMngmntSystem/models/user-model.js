@@ -48,8 +48,8 @@ module.exports ={
     });
   },
 
-  updateManager: function(user, callback){
-    var sql = "update users set password='"+user.password+"', email='"+user.email+"' ,phone='"+user.phone+"', address='"+user.address+"' where id='"+user.id+"'";
+  updateManager: function(user,image, callback){
+    var sql = "update users set password='"+user.password+"', email='"+user.email+"' ,phone='"+user.phone+"', address='"+user.address+"', image='"+image+"' where id='"+user.id+"'";
     db.execute(sql, function(status){
       if(status){
         callback(true);

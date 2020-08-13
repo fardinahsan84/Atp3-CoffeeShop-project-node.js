@@ -11,7 +11,7 @@
       </style>
   </head>
   <body>
-    <form method="post">
+    <form method="post" action="/manager/editProfile/<%= user.id %>" enctype="multipart/form-data">
       <fieldset>
         <legend>Edit My profile</legend>
         <table class="center">
@@ -46,6 +46,10 @@
           <tr>
             <td>Address</td>
             <td><input type="text" value="<%= user.address %>" required="required" name="address"  id="address"></td>
+          </tr>
+          <tr>
+            <td>Upload an image</td>
+            <td><input type="file" name="uploaded_image" accept="/"></td>
           </tr>
           <tr>
             <td></td>

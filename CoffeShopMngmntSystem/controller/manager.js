@@ -56,21 +56,45 @@ router.get('/editProfile/:id', function(req, res){
 
 router.post('/editProfile/:id', function(req, res){
 
-  var user = {
-    password     :req.body.password,
-    email     	 :req.body.email,
-    phone 			 :req.body.phone,
-		address      :req.body.address,
-		id           :req.params.id
-	}
 
-	userModel.updateManager(user, function(status){
-		if(status){
-			res.redirect('/home');
-		}else{
-			res.redirect('/manager/editProfile/'+req.params.id);
+	if (!req.files){
+			 return res.status(400).send('No files were uploaded.');
+	}else{
+			 var file = req.files.uploaded_image;
+			 var img_name=file.name;
+
+			if(file.mimetype == "image/jpeg" ||file.mimetype == "image/png"||file.mimetype == "image/gif" ){
+
+						 file.mv('public/images/upload_images/'+file.name, function(err) {
+
+							if(err){
+
+								 return res.status(500).send(err);
+							}else{
+										var user = {
+									    password     :req.body.password,
+									    email     	 :req.body.email,
+									    phone 			 :req.body.phone,
+											address      :req.body.address,
+											id           :req.params.id
+											//image			   :req.img_name
+										}
+									
+
+										userModel.updateManager(user,img_name, function(status){
+				 						 		if(status){
+				 						 			res.redirect('/home');
+				 						 		}else{
+				 						 			res.redirect('/manager/editProfile/'+req.params.id);
+				 						 		}
+		 						 	 });
+						 }
+						});
+			}else {
+					 message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
+					 res.render('manager/edit',{message: message});
+				 }
 		}
-	});
 });
 
 router.get('/edit/:id', function(req, res){

@@ -58,24 +58,17 @@ li a:hover {
 </center>
 
 	<fieldset>
+
 		<table class="center">
 			<tr>
-				<td>ID:</td><td><%= userlist.id %></td>
-			</tr>
-			<tr>
-				<td>Name:</td><td><%= userlist.name %></td>
-			</tr>
-			<tr>
-				<td>Gender:</td><td><%= userlist.gender %></td>
-			</tr>
-			<tr>
-				<td>Phone:</td><td><%= userlist.phone %><td>
-			</tr>
-			<tr>
-				<td>Address:</td><td><%= userlist.address %><td>
-			</tr>
-			<tr>
-				<td>Email:</td><td><%= userlist.email %></td>
+				<td><img alt="User Pic" src="http://localhost:58800/images/upload_images/<%= userlist.image%>" width="230" height="200" class="img-circle img-responsive"></td>
+				<td><pre>
+	 ID	 : <%= userlist.id %><br>
+	 Name	 : <%= userlist.name %><br>
+	 Gender  : <%= userlist.gender %><br>
+	 Phone   : <%= userlist.phone %><br>
+	 Address : <%= userlist.address %><br>
+	 Email   : <%= userlist.email %><br></pre></td>
 			</tr>
 			<tr>
 				<td></td>
