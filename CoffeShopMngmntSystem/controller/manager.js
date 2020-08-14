@@ -11,6 +11,14 @@ router.get('/AllFoodItem', function(req, res){
 	});
 });
 
+router.get('/newArrival', function(req, res){
+
+	userModel.getAllFood(function(results){
+    console.log(results);
+		res.render('home/newArrival', { userList : results, username: req.session.username});
+	});
+});
+
 
 router.get('/allDeliveryMan', function(req, res){
 

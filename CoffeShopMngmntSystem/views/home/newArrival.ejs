@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Food Item List page</title>
+  <style>
+  table.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+			h3 {text-align: right;}
+      p {
+            font-size: 30px;
+        }
+
+        ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    	width: 14%;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+  </style>
+
+</head>
+<body>
+  <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/manager/AllFoodItem">Coffee List</a></li>
+      <li><a href="/manager/create">Post new Item</a></li>
+      <li><a href="/manager/allDeliveryMan">Delivery man</a></li>
+      <li><a href="/manager/AllFoodItem">Reviews</a></li>
+      <li><a href="/home">Back</a></li>
+      <li><a href="/logout">Logout</a><li>
+</ul>
+	<center>
+				<h1>New Arrival !!!</h1>
+			</center>
+
+            <table >
+              <tr>
+    		<% for(var i=userList.length-1; i >= 5; i--){ %>
+          <td>
+      				 <fieldset>
+      					<table class="center">
+      					<legend><p><%= userList[i].name %></p></legend>
+      				<tr>
+          			<th>NAME</th><td>:<%= userList[i].name %></td><td><a href="/manager/Reviews/<%= userList[i].id %>">Reviews</a></td>
+      				</tr>
+      				<tr>
+                <th>Price/item</th><td>:<%= userList[i].price %></td><br>
+      				</tr
+      				<tr>
+                <th>Item status</th><td>:<%= userList[i].status %></td>
+                </tr>
+              <tr>
+          			<th>Ingredients</th><td>:<%= userList[i].ingredients %></td>
+          		</tr>
+      				</table>
+      				</fieldset>
+          </td>
+    		<% } %>
+      </tr>
+  </table>
+
+</body>
+</html>
