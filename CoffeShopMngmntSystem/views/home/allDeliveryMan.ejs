@@ -8,16 +8,48 @@
           margin-right: auto;
         }
   			h3 {text-align: right;}
-  </style>
+				ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+				}
 
-</head>
-<body>
+				li {
+				float: left;
+				width: 16%;
+				}
+
+				li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				}
+
+				li a:hover {
+				background-color: #111;
+				}
+				</style>
+
+				</head>
+				<body>
+				<ul>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/manager/AllFoodItem">Coffee List</a></li>
+					<li><a href="/manager/create">Post new Item</a></li>
+					<li><a href="/manager/allDeliveryMan">Delivery man</a></li>
+					<li><a href="/manager/newArrival">New Arrival</a></li>
+					<li><a href="/logout">Logout</a><li>
+				</ul>
 	    <center>
 				<h1>Delivery man list</h1>
 			  <h2>Manager: <%= username %></h2>
 			</center>
 
-						<h3><a href="/home">Back</a>|<a href="/logout">Logout</a></h3>
+						<h3><a href="/home">Back</a></h3>
 
 
     		<% for(var i=0; i < userList.length; i++){ %>
